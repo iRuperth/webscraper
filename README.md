@@ -45,7 +45,7 @@ cd webscraper_project
 ```
 
 ```bash
- python3 manage.py scraper
+python3 manage.py scraper
 ```
 
 
@@ -55,7 +55,7 @@ For Django server:
 
 ```bash
  cd webscraper 
- cd webscraper_project/
+ cd webscraper_project
 ```
 
 ```bash
