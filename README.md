@@ -59,7 +59,7 @@ For Django server:
 ```
 
 ```bash
- python3 manage.py runserver
+python3 manage.py runserver
 ```
 
  If we want to create a superuser, we need to run the following command:
@@ -73,3 +73,38 @@ For Django server:
  http://127.0.0.1:8000/admin/
  ```
 
+
+
+To check the logs of the cron job:
+ ```bash
+docker exec -it webscraper-server-1 service cron status
+ ```
+
+
+
+ 
+To check the logs of the cron job:
+ ```bash
+docker logs webscraper-server-1
+```
+
+
+
+To build the aplication:
+
+ ```bash
+docker compose up --build -d
+ ```
+
+
+To build and run the application:
+
+ ```bash
+docker compose up --build -d
+ ```
+
+To stop the application:
+
+ ```bash
+docker compose down
+ ```
