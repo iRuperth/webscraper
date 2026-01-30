@@ -1,0 +1,18 @@
+services:
+  web:
+    build: .
+    container_name: webscraper-django
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    restart: always
+
+  cron:
+    build: .
+    container_name: webscraper-cron
+    command: cron -f
+    volumes:
+      - .:/app
+    restart: always
