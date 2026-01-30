@@ -2,6 +2,7 @@ services:
   web:
     build: .
     container_name: webscraper-django
+    working_dir: /app/webscraper/webscraper_project
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
@@ -12,6 +13,7 @@ services:
   cron:
     build: .
     container_name: webscraper-cron
+    working_dir: /app/webscraper/webscraper_project
     command: cron -f
     volumes:
       - .:/app

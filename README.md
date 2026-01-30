@@ -4,6 +4,30 @@
 ### Webscraper is a web scraping tool that uses Selenium to scrape data from websites.
 ### In this project we are scraping data from quotes.toscrape.com, a website that contains quotes from famous people. Good for learning purposes.
 
+Build and run the application with DOCKER COMPOSE:
+
+```bash
+docker compose up --build -d
+```
+
+To migrate the database:
+```bash
+docker exec -it webscraper-django python manage.py migrate
+```
+To run the application:
+```bash
+docker compose up --build  
+```
+To create a superuser:
+```bash
+docker exec -it webscraper-django python manage.py createsuperuser
+```
+
+
+Web: http://localhost:8000
+
+Django Admin: http://localhost:8000/admin
+
 
 ## Steeps to run the aplication:
 
@@ -82,7 +106,7 @@ docker exec -it webscraper-server-1 service cron status
 
 
 
- 
+
 To check the logs of the cron job:
  ```bash
 docker logs webscraper-server-1
