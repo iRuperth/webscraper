@@ -1,1 +1,3 @@
 */5 * * * * /usr/local/bin/python /webscraper/webscraper_project/manage.py scrape >> /var/log/cron.log 2>&1
+
+*/5 * * * * root /usr/local/bin/python /app/webscraper/webscraper_project/manage.py scrape >> /var/log/cron.log 2>&1

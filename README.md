@@ -6,9 +6,6 @@
 
 Build and run the application with DOCKER COMPOSE:
 
-```bash
-docker compose up --build -d
-```
 
 To migrate the database:
 ```bash
@@ -123,12 +120,19 @@ docker compose up --build -d
 
 To build and run the application:
 
- ```bash
+```bash
 docker compose up --build -d
- ```
+```
 
 To stop the application:
 
- ```bash
+```bash
 docker compose down
- ```
+```
+
+### undetected-chromedriver
+
+```bash
+python
+import undetected_chromedriver as uc
+```
