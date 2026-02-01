@@ -10,19 +10,21 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+RUN mkdir -p /app/screenshots && chmod 777 /app/screenshots
+
 COPY . .
 
 # Cron setup
 RUN mkdir -p /var/run /var/log && \
-    touch /var/log/cron.log
+    touch /var/log/cron.log && chmod 666 /var/log/cron.log
 
 COPY cronfile /etc/cron.d/scrape-cron
-RUN chmod 0644 /etc/cron.d/scrape-cron && \
-    crontab /etc/cron.d/scrape-cron
+RUN chmod 0644 /etc/cron.d/scrape-cron
 
-# Entrypoint
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
+
+VOLUME ["/app/screenshots"]
 
 EXPOSE 8000
 

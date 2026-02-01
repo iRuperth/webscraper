@@ -5,6 +5,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
+from datetime import datetime
+import os
+from django.conf import settings
 
 def scrape_website():
     options = Options()
@@ -17,6 +20,11 @@ def scrape_website():
 
     url = "https://quotes.toscrape.com/tag/humor/"
     driver.get(url)
+
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"capture_{timestamp}.png"
+    filepath = str(settings.MEDIA_ROOT / filename)
+    driver.save_screenshot(filepath)
 
     try:
         WebDriverWait(driver, 10).until(
@@ -42,6 +50,7 @@ def scrape_website():
             "tags": tags,
             "author_url": author_url,
             "page_url": url,
+            "screenshot": filepath
         })
 
     driver.quit()
